@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="XUY-qf-bcL" customClass="InputView" customModule="MyApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lFZ-G6-7Ss">
+                    <rect key="frame" x="8" y="7" width="359" height="36"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="lFZ-G6-7Ss" firstAttribute="top" secondItem="XUY-qf-bcL" secondAttribute="top" constant="7" id="7tC-UE-wYR"/>
+                <constraint firstAttribute="trailing" secondItem="lFZ-G6-7Ss" secondAttribute="trailing" constant="8" id="AI5-7o-KkP"/>
+                <constraint firstItem="lFZ-G6-7Ss" firstAttribute="leading" secondItem="XUY-qf-bcL" secondAttribute="leading" constant="8" id="ITx-nj-zvO"/>
+                <constraint firstAttribute="bottom" secondItem="lFZ-G6-7Ss" secondAttribute="bottom" constant="7" id="wM0-FA-dBL"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="chatTextView" destination="lFZ-G6-7Ss" id="0PT-Aq-JYT"/>
+            </connections>
+            <point key="canvasLocation" x="383.5" y="354"/>
+        </view>
+    </objects>
+</document>

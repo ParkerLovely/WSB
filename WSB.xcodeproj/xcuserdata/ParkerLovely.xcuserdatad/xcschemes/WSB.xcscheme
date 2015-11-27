@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2BEDCD3B1BFCB50C00467388"
-               BuildableName = "WSB.app"
+               BuildableName = "MyApp.app"
                BlueprintName = "WSB"
                ReferencedContainer = "container:WSB.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2BEDCD3B1BFCB50C00467388"
-            BuildableName = "WSB.app"
+            BuildableName = "MyApp.app"
             BlueprintName = "WSB"
             ReferencedContainer = "container:WSB.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2BEDCD3B1BFCB50C00467388"
-            BuildableName = "WSB.app"
+            BuildableName = "MyApp.app"
             BlueprintName = "WSB"
             ReferencedContainer = "container:WSB.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2BEDCD3B1BFCB50C00467388"
-            BuildableName = "WSB.app"
+            BuildableName = "MyApp.app"
             BlueprintName = "WSB"
             ReferencedContainer = "container:WSB.xcodeproj">
          </BuildableReference>

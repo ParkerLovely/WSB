@@ -8,17 +8,66 @@
 
 import UIKit
 
+protocol DataRefreshDelegate{
+    func dataRefresh()
+}
+
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, XMPPLoginDelegate {
 
     var window: UIWindow?
 
-
+    var dataRefresh_delegate : DataRefreshDelegate?
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        
+//        let path = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+//        print("\(path)")
+        
+        
+        UserInfo.getInstance().loadUserInfoFromSandbox()
+        
+        if UserInfo.getInstance().loginState == LoginState.Online {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController() as? UITabBarController
+            self.window!.rootViewController = vc
+            MBProgressHUD.showMessage("读取数据...", toView: self.window!.rootViewController!.view, color: loginProgressHUDColor)
+            XMPPManager.getInstance().userLogIn(self)
+            
+            let naVc = vc?.viewControllers![0] as? UINavigationController
+            let contactsVc = naVc?.topViewController as? ContactTableViewController
+            self.dataRefresh_delegate = contactsVc
+            
+            
+            //注册本地通知
+            let settings = UIUserNotificationSettings(forTypes: UIUserNotificationType.Badge, categories: nil)
+            application.registerUserNotificationSettings(settings)
+            
+        }
+        
+        
+        
+        
         return true
     }
 
+    
+    func loginSuccess() {
+        MBProgressHUD.hideHUDForView(self.window?.rootViewController?.view)
+        //登录成功刷新界面
+        dataRefresh_delegate?.dataRefresh()
+    }
+    func loginFail() {
+        MBProgressHUD.hideHUDForView(self.window?.rootViewController?.view)
+    }
+    func loginNetError() {
+        MBProgressHUD.hideHUDForView(self.window?.rootViewController?.view)
+    }
+    
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
